@@ -6,4 +6,4 @@ The puzzle itself contains a minimum of 5 clues, 2 dead-ends, and 1 solution, pr
 
 On top of that, Website features persistence, meaning that refreshing the page will start the puzzle from the same step or allow the user to restart. Finally, we offer an admin dashboard for the admin to view the progress of all users, providing valuable insights into the soft skills of Users.
 
-To get started with Puzzle, simply clone this repository to your local machine, open the index.html file in your browser, and follow the on-screen instructions to create an account and start playing!
+To get started with Puzzle, simply clone this repository to your local machine, open the `index.html` file in your browser, and follow the on-screen instructions to create an account and start playing!
