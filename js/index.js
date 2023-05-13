@@ -136,14 +136,11 @@ function validate_password(password) {
     }
 }
 
+/**
+@param {string} field
+@return {boolean}
+*/
 function validate_field(field) {
-    if (field == null) {
-        return false
-    }
-
-    if (field.length <= 0) {
-        return false
-    } else {
-        return true
-    }
+    if (field && typeof field === string) return true
+    return false
 }
