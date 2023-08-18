@@ -1,11 +1,11 @@
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBcgkmYcCIbiBG43AdbxdfrlDDZjOgJorY",
-    authDomain: "puzzle-68d4c.firebaseapp.com",
-    projectId: "puzzle-68d4c",
-    storageBucket: "puzzle-68d4c.appspot.com",
-    messagingSenderId: "218225000230",
-    appId: "1:218225000230:web:32aa6dfb0e6e0d7986cbe7"
+  apiKey: "AIzaSyBx0P_HhaX0mgNBgmp65mAv_S2sZoFgkls",
+  authDomain: "riddlemethis-f0761.firebaseapp.com",
+  projectId: "riddlemethis-f0761",
+  storageBucket: "riddlemethis-f0761.appspot.com",
+  messagingSenderId: "413628309920",
+  appId: "1:413628309920:web:68f12ac40533cc399f44c5"
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -136,11 +136,14 @@ function validate_password(password) {
     }
 }
 
-/**
-@param {string} field
-@return {boolean}
-*/
 function validate_field(field) {
-    if (field && typeof field === string) return true
-    return false
+    if (field == null) {
+        return false
+    }
+
+    if (field.length <= 0) {
+        return false
+    } else {
+        return true
+    }
 }
