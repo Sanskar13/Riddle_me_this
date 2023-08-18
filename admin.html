@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 
 <head>
@@ -11,43 +11,43 @@
 <body>
     <h1>User Data</h1>
     <p>Email: <span id="user-email"></span></p>
-
-    <p>full_name: <span id="user-full"></span></p>
-    <p>last-login: <span id="user-log"></span></p>
+    <p>Full Name: <span id="user-full-name"></span></p>
+    <p>Last Login: <span id="user-last-login"></span></p>
     <script>
-        // Set the configuration for your app
-        // TODO: Replace with your project's config object
+        // Firebase configuration
         var config = {
-            apiKey: "AIzaSyBcgkmYcCIbiBG43AdbxdfrlDDZjOgJorY",            authDomain: "login-signup-bf2b0.firebaseapp.com",
-            projectId: "puzzle-68d4c",            storageBucket: "login-signup-bf2b0.appspot.com",
-            messagingSenderId: "218225000230",
-            appId: "1:218225000230:web:32aa6dfb0e6e0d7986cbe7",
-            databaseURL: "https://puzzle-68d4c-default-rtdb.firebaseio.com"
+            // Your Firebase config details here
+            apiKey: "AIzaSyBx0P_HhaX0mgNBgmp65mAv_S2sZoFgkls",
+            authDomain: "riddlemethis-f0761.firebaseapp.com",
+            projectId: "riddlemethis-f0761",
+            storageBucket: "riddlemethis-f0761.appspot.com",
+            messagingSenderId: "413628309920",
+            appId: "1:413628309920:web:68f12ac40533cc399f44c5",
+            databaseURL: "https://login-signup-bf2b0-default-rtdb.firebaseio.com"
         };
         firebase.initializeApp(config);
 
+        // Get a reference to the currently signed-in user
+        var currentUser = firebase.auth().currentUser;
 
+        if (currentUser) {
+            var userId = currentUser.uid;
 
-        // Get the uid of the user you want to retrieve data for
-        var database = firebase.database();
+            // Get a reference to the user's data in the database
+            var userRef = firebase.database().ref("users/" + userId);
 
-        // Get a reference to the users node in the database
-        var usersRef = database.ref("users");
-        console.log(usersRef)
-        // Attach a listener to read the data at our users reference
-        usersRef.on('value', function (snapshot) {
-            // Get the user data from the snapshot
-            var userData = snapshot.val();
+            // Attach a listener to read the user's data from the database
+            userRef.on('value', function (snapshot) {
+                var userData = snapshot.val();
 
-            // Display the user data on the page
-            console.log('User data:', userData);
-            document.getElementById('user-email').textContent = userData.email;
-            document.getElementById('user-full').textContent = userData.full_name;
-            document.getElementById('user-log').textContent = userData.last_login;
-        });
-        
-
-
+                // Display the user's data on the page
+                document.getElementById('user-email').textContent = userData.email;
+                document.getElementById('user-full-name').textContent = userData.full_name;
+                document.getElementById('user-last-login').textContent = userData.last_login;
+            });
+        } else {
+            console.log("No user is currently signed in.");
+        }
     </script>
 </body>
 
